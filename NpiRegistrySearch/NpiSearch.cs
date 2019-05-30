@@ -8,13 +8,13 @@ using System.Net.Http;
 
 namespace NpiRegistrySearch
 {
-    public class Search
+    public class NpiSearch
     {
         /// <summary>
         /// Retrieves a single organization NPI from the NPI number
         /// </summary>
         /// <param name="npiNumber">Exactly 10 digits</param>
-        public IndividualNpiRecord GetIndividualByNumber(string npiNumber)
+        public static IndividualNpiRecord GetIndividualByNumber(string npiNumber)
         {
             IEnumerable<IndividualNpiRecordDto> recordDtos = GetApiCallList<IndividualNpiRecordDto>($"https://npiregistry.cms.hhs.gov/api/?version=2.1&number={npiNumber}&enumeration_type={EnumerationType.Individual.ToString()}");
 
@@ -25,7 +25,7 @@ namespace NpiRegistrySearch
         /// Retrieves a single organization NPI from the NPI number
         /// </summary>
         /// <param name="npiNumber">Exactly 10 digits</param>
-        public OrganizationNpiRecord GetOrganizationByNumber(string npiNumber)
+        public static OrganizationNpiRecord GetOrganizationByNumber(string npiNumber)
         {
             IEnumerable<OrganizationNpiRecordDto> recordDtos = GetApiCallList<OrganizationNpiRecordDto>($"https://npiregistry.cms.hhs.gov/api/?version=2.1&number={npiNumber}&enumeration_type={EnumerationType.Organization.ToString()}");
 
@@ -48,7 +48,7 @@ namespace NpiRegistrySearch
         /// <param name="limit">Limit results, default = 10, max = 200</param>
         /// <param name="skip">Skip first N results, max = 1000</param>
         /// <returns></returns>
-        public IEnumerable<IndividualNpiRecord> SearchIndividuals(string npiNumber = "", string taxonomyDescription = "", bool useFirstNameAlias = false, string firstName = "", string lastName = "", string addressPurpose = "LOCATION", string city = "", string state = "", string postalCode = "", string countryCode = "US", int limit = 200, int skip = 0)
+        public static IEnumerable<IndividualNpiRecord> SearchIndividuals(string npiNumber = "", string taxonomyDescription = "", bool useFirstNameAlias = false, string firstName = "", string lastName = "", string addressPurpose = "LOCATION", string city = "", string state = "", string postalCode = "", string countryCode = "US", int limit = 200, int skip = 0)
         {
             string apiUrl = $"https://npiregistry.cms.hhs.gov/api/?version=2.1&number={npiNumber}&enumeration_type={EnumerationType.Individual.ToString()}&taxonomy_description={taxonomyDescription}&first_name={firstName}&use_first_name_alias={useFirstNameAlias}&last_name={lastName}&address_purpose={addressPurpose.ToString()}&city={city}&state={state}&postal_code={postalCode}&country_code={countryCode}&limit={limit}&skip={skip}";
             IEnumerable<IndividualNpiRecordDto> recordDtos = GetApiCallList<IndividualNpiRecordDto>(apiUrl);
@@ -72,7 +72,7 @@ namespace NpiRegistrySearch
         /// <param name="limit">Limit results, default = 10, max = 200</param>
         /// <param name="skip">Skip first N results, max = 1000</param>
         /// <returns></returns>
-        public IEnumerable<OrganizationNpiRecord> SearchOrganizations(string npiNumber = "", string taxonomyDescription = "", string organizationName = "", string addressPurpose = "LOCATION", string city = "", string state = "", string postalCode = "", string countryCode = "US", int limit = 200, int skip = 0)
+        public static IEnumerable<OrganizationNpiRecord> SearchOrganizations(string npiNumber = "", string taxonomyDescription = "", string organizationName = "", string addressPurpose = "LOCATION", string city = "", string state = "", string postalCode = "", string countryCode = "US", int limit = 200, int skip = 0)
         {
             string apiUrl = $"https://npiregistry.cms.hhs.gov/api/?version=2.1&number={npiNumber}&enumeration_type={EnumerationType.Organization.ToString()}&taxonomy_description={taxonomyDescription}&organization_name={organizationName}&address_purpose={addressPurpose.ToString()}&city={city}&state={state}&postal_code={postalCode}&country_code={countryCode}&limit={limit}&skip={skip}";
             IEnumerable<OrganizationNpiRecordDto> recordDtos = GetApiCallList<OrganizationNpiRecordDto>(apiUrl);
@@ -82,7 +82,7 @@ namespace NpiRegistrySearch
             return records;
         }
 
-        private T GetApiCall<T>(string apiUrl)
+        private static T GetApiCall<T>(string apiUrl)
         {
             using (var client = new HttpClient())
             {
@@ -100,7 +100,7 @@ namespace NpiRegistrySearch
         }
 
 
-        private IEnumerable<T> GetApiCallList<T>(string apiUrl)
+        private static IEnumerable<T> GetApiCallList<T>(string apiUrl)
         {
             var returnVal = new List<T>();
 
@@ -131,7 +131,7 @@ namespace NpiRegistrySearch
         }
 
 
-        private JsonSerializerSettings serializerSettings = new JsonSerializerSettings
+        private static JsonSerializerSettings serializerSettings = new JsonSerializerSettings
         {
             NullValueHandling = NullValueHandling.Ignore,
             MissingMemberHandling = MissingMemberHandling.Ignore
