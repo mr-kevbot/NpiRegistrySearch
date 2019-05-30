@@ -9,8 +9,10 @@
     <Copyright>GNU General Public License v3.0</Copyright>
     <PackageLicenseUrl>https://github.com/mr-kevbot/NpiRegistrySearch/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/mr-kevbot/NpiRegistrySearch</RepositoryUrl>
-    <PackageReleaseNotes>Created methods for GetIndividualByNumber, GetOrganizationByNumber, SearchIndividuals, SearchOrganizations.</PackageReleaseNotes>
+    <PackageReleaseNotes>Version 1.0.1 - Make search methods static
+Version 1.0.0 - Created methods for GetIndividualByNumber, GetOrganizationByNumber, SearchIndividuals, SearchOrganizations.</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
