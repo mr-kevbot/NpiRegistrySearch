@@ -8,6 +8,9 @@ namespace NpiRegistrySearch.Dtos
         [JsonProperty("number")]
         internal int Number { get; set; }
 
+        [JsonProperty("taxonomies")]
+        internal IEnumerable<TaxonomyDto> Taxonomies { get; set; }
+
         [JsonProperty("addresses")]
         internal IEnumerable<AddressDto> Addresses { get; set; }
 

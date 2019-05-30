@@ -31,6 +31,15 @@ namespace NpiRegistrySearch.Dtos
                     LastUpdatedDate = DateTime.Parse(this.OrganizationInformation.LastUpdated)
                 },
                 Number = this.Number.ToString(),
+                Taxonomies = this.Taxonomies.Select(x => new Taxonomy
+                {
+                    Code = x.Code,
+                    Description = x.Description,
+                    License = x.License,
+                    Primary = x.Primary,
+                    State = x.State,
+                    TaxonomyGroup = x.TaxonomyGroup
+                }),
                 Addresses = this.Addresses.Select(x => new Address
                 {
                     Address1 = x.Address1,

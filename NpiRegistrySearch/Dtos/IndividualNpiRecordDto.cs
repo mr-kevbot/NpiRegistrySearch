@@ -9,7 +9,7 @@ namespace NpiRegistrySearch.Dtos
     {
         [JsonProperty("basic")]
         internal IndividualInformationDto IndividualInformation { get; set; }
-        
+
         internal IndividualNpiRecord ToIndividualNpiRecord()
         {
             return new IndividualNpiRecord
@@ -18,13 +18,22 @@ namespace NpiRegistrySearch.Dtos
                 {
                     FirstName = this.IndividualInformation.FirstName,
                     LastName = this.IndividualInformation.LastName,
-                    MiddleName = this.IndividualInformation.MiddleName ,
+                    MiddleName = this.IndividualInformation.MiddleName,
                     NameSuffix = this.IndividualInformation.NameSuffix,
                     SoleProprietor = this.IndividualInformation.SoleProprietor == "YES",
                     Credential = this.IndividualInformation.Credential,
                     Gender = this.IndividualInformation.Gender
                 },
                 Number = this.Number.ToString(),
+                Taxonomies = this.Taxonomies.Select(x => new Taxonomy
+                {
+                    Code = x.Code,
+                    Description = x.Description,
+                    License = x.License,
+                    Primary = x.Primary,
+                    State = x.State,
+                    TaxonomyGroup = x.TaxonomyGroup
+                }),
                 Addresses = this.Addresses.Select(x => new Address
                 {
                     Address1 = x.Address1,

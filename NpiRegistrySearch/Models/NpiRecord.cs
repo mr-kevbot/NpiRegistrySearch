@@ -7,7 +7,7 @@ namespace NpiRegistrySearch.Models
     public abstract class NpiRecord
     {
         /// <summary>
-        /// enumeration_type: NPI-1 is individual, NPI-2 is organization
+        /// NPI-1 is individual, NPI-2 is organization
         /// </summary>
         public EnumerationType EnumerationType { get; internal set; }
 
@@ -15,6 +15,11 @@ namespace NpiRegistrySearch.Models
         /// The NPI Number
         /// </summary>
         public string Number { get; internal set; }
+
+        /// <summary>
+        /// The taxonomies (e.g. Cardiology, Hospitalist) associated with the NPI
+        /// </summary>
+        public IEnumerable<Taxonomy> Taxonomies { get; internal set; }
 
         /// <summary>
         /// last_updated_epoch convert to DateTime
