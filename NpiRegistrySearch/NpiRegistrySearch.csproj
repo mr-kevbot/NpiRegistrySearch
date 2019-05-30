@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <Authors>Kevin Jordan</Authors>
+    <Company>99Summits</Company>
+    <Description>Search the NPPES NPI registry for medical organizations and providers.</Description>
+    <PackageProjectUrl>https://github.com/mr-kevbot/NpiRegistrySearch</PackageProjectUrl>
+    <Copyright>GNU General Public License v3.0</Copyright>
+    <PackageLicenseUrl>https://github.com/mr-kevbot/NpiRegistrySearch/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/mr-kevbot/NpiRegistrySearch</RepositoryUrl>
+    <PackageReleaseNotes>Created methods for GetIndividualByNumber, GetOrganizationByNumber, SearchIndividuals, SearchOrganizations.</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
