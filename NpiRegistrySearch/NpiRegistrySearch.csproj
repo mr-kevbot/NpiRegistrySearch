@@ -9,11 +9,12 @@
     <Copyright>GNU General Public License v3.0</Copyright>
     <PackageLicenseUrl>https://github.com/mr-kevbot/NpiRegistrySearch/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/mr-kevbot/NpiRegistrySearch</RepositoryUrl>
-    <PackageReleaseNotes>Version 1.0.2 - Expose taxonomy information
+    <PackageReleaseNotes>Version 1.0.3 - Allow compare of AddressPurpose and EnumerationType objects
+Version 1.0.2 - Expose taxonomy information
 Version 1.0.1 - Make search methods static
 Version 1.0.0 - Created methods for GetIndividualByNumber, GetOrganizationByNumber, SearchIndividuals, SearchOrganizations.</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 
   <ItemGroup>

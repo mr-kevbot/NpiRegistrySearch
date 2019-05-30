@@ -1,4 +1,6 @@
-﻿namespace NpiRegistrySearch.Models
+﻿using System;
+
+namespace NpiRegistrySearch.Models
 {
     public class EnumerationType
     {
@@ -22,6 +24,18 @@
         public override string ToString()
         {
             return _value;
+        }
+
+        public override bool Equals(object obj)
+        {
+            var type = obj as EnumerationType;
+            return type != null &&
+                   _value == type._value;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(_value);
         }
 
         public static EnumerationType Individual => new EnumerationType("NPI-1");

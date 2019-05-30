@@ -1,4 +1,6 @@
-﻿namespace NpiRegistrySearch.Models
+﻿using System;
+
+namespace NpiRegistrySearch.Models
 {
     public class AddressPurpose
     {
@@ -9,9 +11,21 @@
 
         public override string ToString() => _value;
 
-        public static string Location => "LOCATION";
-        public static string Mailing => "MAILING";
-        public static string Primary => "PRIMARY";
-        public static string Secondary => "SECONDARY";
+        public override bool Equals(object obj)
+        {
+            var purpose = obj as AddressPurpose;
+            return purpose != null &&
+                   _value == purpose._value;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(_value);
+        }
+
+        public static AddressPurpose Location => new AddressPurpose("LOCATION");
+        public static AddressPurpose Mailing => new AddressPurpose("MAILING");
+        public static AddressPurpose Primary => new AddressPurpose("PRIMARY");
+        public static AddressPurpose Secondary => new AddressPurpose("SECONDARY");
     }
 }
