@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NpiRegistrySearch", "NpiRegistrySearch\NpiRegistrySearch.csproj", "{A88968DE-0275-4C47-B886-6704D85E6098}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NpiRegistrySearch.SampleConsole", "NpiRegistrySearch.SampleConsole\NpiRegistrySearch.SampleConsole.csproj", "{032E96E8-7E19-4AD8-850B-CCD19FFCBEF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NpiRegistrySearch.SampleConsole", "NpiRegistrySearch.SampleConsole\NpiRegistrySearch.SampleConsole.csproj", "{032E96E8-7E19-4AD8-850B-CCD19FFCBEF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NpiRegistrySearch.Tests", "NpiRegistrySearch.Tests\NpiRegistrySearch.Tests.csproj", "{28FFC9FF-AEFA-4286-94C3-934E00057619}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{032E96E8-7E19-4AD8-850B-CCD19FFCBEF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{032E96E8-7E19-4AD8-850B-CCD19FFCBEF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{032E96E8-7E19-4AD8-850B-CCD19FFCBEF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28FFC9FF-AEFA-4286-94C3-934E00057619}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28FFC9FF-AEFA-4286-94C3-934E00057619}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28FFC9FF-AEFA-4286-94C3-934E00057619}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28FFC9FF-AEFA-4286-94C3-934E00057619}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

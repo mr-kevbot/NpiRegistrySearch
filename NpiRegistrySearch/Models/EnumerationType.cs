@@ -33,6 +33,22 @@ namespace NpiRegistrySearch.Models
                    _value == type._value;
         }
 
+        public static bool operator ==(EnumerationType t1, EnumerationType t2)
+        {
+            if (System.Object.ReferenceEquals(t1, t2))
+                return true;
+
+            if (((object)t1 == null) || ((object)t2 == null))
+                return false;
+
+            return t1._value == t2._value;
+        }
+
+        public static bool operator !=(EnumerationType t1, EnumerationType t2)
+        {
+            return !(t1 == t2);
+        }
+
         public override int GetHashCode()
         {
             return HashCode.Combine(_value);

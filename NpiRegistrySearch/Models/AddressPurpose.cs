@@ -18,6 +18,22 @@ namespace NpiRegistrySearch.Models
                    _value == purpose._value;
         }
 
+        public static bool operator ==(AddressPurpose p1, AddressPurpose p2)
+        {
+            if (System.Object.ReferenceEquals(p1, p2))
+                return true;
+
+            if (((object)p1 == null) || ((object)p2 == null))
+                return false;
+
+            return p1._value == p2._value;
+        }
+
+        public static bool operator !=(AddressPurpose p1, AddressPurpose p2)
+        {
+            return !(p1 == p2);
+        }
+
         public override int GetHashCode()
         {
             return HashCode.Combine(_value);
