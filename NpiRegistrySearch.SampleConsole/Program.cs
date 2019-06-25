@@ -24,6 +24,21 @@ namespace NpiRegistrySearch.SampleConsole
                 Console.WriteLine(record.Number + ": " + record.Basic.FirstName + " " + record.Basic.LastName);
             }
 
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("- Failed Search Organizations");
+            Console.WriteLine("---------------------------------");
+            try
+            {
+                var failedOrgRecords = NpiSearch.SearchOrganizations(state: "TX");
+            }
+            catch (AggregateException ex)
+            {
+                foreach (ArgumentException exception in ex.InnerExceptions)
+                {
+                    Console.WriteLine(exception.Message);
+                }
+            }
+
             Console.WriteLine();
             Console.WriteLine("DONE!");
             Console.ReadKey();

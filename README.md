@@ -32,3 +32,18 @@ NpiSearch.SearchOrganizations(string npiNumber = "", string taxonomyDescription 
 // Example
 var records = new Search().SearchOrganizations(city: "Dallas", state: "TX", taxonomyDescription: "cardiology");
 ```
+
+**Handling Search Errors**
+```csharp
+try
+{
+	var failedOrgRecords = NpiSearch.SearchOrganizations(state: "TX");
+}
+catch (AggregateException ex)
+{
+	foreach (ArgumentException exception in ex.InnerExceptions)
+	{
+		Console.WriteLine(exception.Message);
+	}
+}
+```

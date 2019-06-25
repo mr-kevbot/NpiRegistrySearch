@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using NpiRegistrySearch.Dtos;
 using NpiRegistrySearch.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -112,6 +113,23 @@ namespace NpiRegistrySearch
                 {
                     response.EnsureSuccessStatusCode();
                     string responseBody = response.Content.ReadAsStringAsync().Result;
+
+                    if (responseBody.Contains("\"Errors\":"))
+                    {
+                        var errors = new List<ArgumentException>();
+                        var jsonErrorsObject = JObject.Parse(responseBody);
+                        var jsonErrorsValues = jsonErrorsObject["Errors"];
+                        foreach (var jsonValue in jsonErrorsValues)
+                        {
+                            var errorDto = JsonConvert.DeserializeObject<ErrorDto>(jsonValue.ToString(), serializerSettings);
+                            errors.Add(new ArgumentException(errorDto.Description, errorDto.Field));
+                        }
+
+                        if (errors.Count > 0)
+                            throw new AggregateException(errors);
+                        else
+                            throw errors.First();
+                    }
 
                     if (responseBody.StartsWith('['))
                         return JsonConvert.DeserializeObject<List<T>>(responseBody, serializerSettings);
