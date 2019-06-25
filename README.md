@@ -33,6 +33,8 @@ NpiSearch.SearchOrganizations(string npiNumber = "", string taxonomyDescription 
 var records = new Search().SearchOrganizations(city: "Dallas", state: "TX", taxonomyDescription: "cardiology");
 ```
 
+#
+
 **Handling Search Errors**
 ```csharp
 try
